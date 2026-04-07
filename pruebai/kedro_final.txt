@@ -1,0 +1,628 @@
+[04/07/26 14:40:38] INFO     Using 'conf\logging.yml' as        __init__.py:275
+                             logging configuration. You can                    
+                             change this by setting the                        
+                             KEDRO_LOGGING_CONFIG environment                  
+                             variable accordingly.                             
+[04/07/26 14:40:40] INFO     Kedro project pruebai               session.py:337
+[04/07/26 14:40:41] INFO     No typed parameter      parameter_validator.py:108
+                             requirements found,                               
+                             returning original                                
+                             parameters                                        
+[04/07/26 14:40:42] INFO     Kedro is sending anonymous usage     plugin.py:242
+                             data with the sole purpose of                     
+                             improving the product. No personal                
+                             data or IP addresses are stored on                
+                             our side. To opt out, set the                     
+                             `KEDRO_DISABLE_TELEMETRY` or                      
+                             `DO_NOT_TRACK` environment                        
+                             variables, or create a `.telemetry`               
+                             file in the current working                       
+                             directory with the contents                       
+                             `consent: false`. To hide this                    
+                             message, explicitly grant or deny                 
+                             consent. Read more at                             
+                             https://docs.kedro.org/en/stable/abo              
+                             ut/telemetry/                                     
+[04/07/26 14:40:43] INFO     Using synchronous mode for sequential_runner.py:59
+                             loading and saving data.                          
+                             Use the --async flag for                          
+                             potential performance                             
+                             gains.                                            
+                             https://docs.kedro.org/en/                        
+                             stable/build/run_a_pipelin                        
+                             e/#load-and-save-asynchron                        
+                             ously                                             
+                    INFO     Loading data from             data_catalog.py:1053
+                             asistencia_raw                                    
+                             (CSVDataset)...                                   
+                    INFO     Running node: clean_asistencia_node:   node.py:531
+                             clean_asistencia() ->                             
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:14: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(mode_vals[0])                    
+                                                                               
+                    INFO     Saving data to                data_catalog.py:1009
+                             asistencia_inter                                  
+                             (CSVDataset)...                                   
+                    INFO     Completed node:                      runner.py:245
+                             clean_asistencia_node                             
+                    INFO     Completed 1 out of 7 tasks           runner.py:246
+                    INFO     Loading data from             data_catalog.py:1053
+                             calificaciones_raw                                
+                             (CSVDataset)...                                   
+                    INFO     Running node:                          node.py:531
+                             clean_calificaciones_node:                        
+                             clean_calificaciones() ->                         
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:27: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df['nota'] =                                    
+                             df['nota'].astype(str).str.extract                
+                             (r'(\d+(?:\.\d+)?)',                              
+                             expand=False).astype(float)                       
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:28: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df['nota'] =                                    
+                             df['nota'].fillna(df['nota'].media                
+                             n())                                              
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:34: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(mode_vals[0])                    
+                                                                               
+                    INFO     Saving data to                data_catalog.py:1009
+                             calificaciones_inter                              
+                             (CSVDataset)...                                   
+                    INFO     Completed node:                      runner.py:245
+                             clean_calificaciones_node                         
+                    INFO     Completed 2 out of 7 tasks           runner.py:246
+                    INFO     Loading data from             data_catalog.py:1053
+                             estudiantes_raw                                   
+                             (CSVDataset)...                                   
+                    INFO     Running node: clean_estudiantes_node:  node.py:531
+                             clean_estudiantes() ->                            
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:54: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df['carrera'] =                                 
+                             df['carrera'].astype(str).str.uppe                
+                             r().str.strip()                                   
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:64: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(df.median())                     
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:62: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(mode_vals[0])                    
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:64: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(df.median())                     
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:62: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(mode_vals[0])                    
+                                                                               
+                    INFO     Saving data to                data_catalog.py:1009
+                             estudiantes_inter                                 
+                             (CSVDataset)...                                   
+                    INFO     Completed node:                      runner.py:245
+                             clean_estudiantes_node                            
+                    INFO     Completed 3 out of 7 tasks           runner.py:246
+                    INFO     Loading data from             data_catalog.py:1053
+                             inscripciones_raw                                 
+                             (CSVDataset)...                                   
+                    INFO     Running node:                          node.py:531
+                             clean_inscripciones_node:                         
+                             clean_inscripciones() ->                          
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:83: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(df.median())                     
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:83: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(df.median())                     
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:81: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(mode_vals[0])                    
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:83: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(df.median())                     
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:83: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(df.median())                     
+                                                                               
+                    WARNING  C:\Users\mapap\Desktop\quinto_seme warnings.py:110
+                             stre\Programaci├│n para la ciencia                 
+                             de                                                
+                             datos\1eraPrueba\pruebai\src\prueb                
+                             ai\pipelines\data_cleaning\nodes.p                
+                             y:81: SettingWithCopyWarning:                     
+                             A value is trying to be set on a                  
+                             copy of a slice from a DataFrame.                 
+                             Try using .loc = value instead                    
+                                                                               
+                             See the caveats in the                            
+                             documentation:                                    
+                             https://pandas.pydata.org/pandas-d                
+                             ocs/stable/user_guide/indexing.htm                
+                             l#returning-a-view-versus-a-copy                  
+                               df = df.fillna(mode_vals[0])                    
+                                                                               
+                    INFO     Saving data to                data_catalog.py:1009
+                             inscripciones_inter                               
+                             (CSVDataset)...                                   
+                    INFO     Completed node:                      runner.py:245
+                             clean_inscripciones_node                          
+                    INFO     Completed 4 out of 7 tasks           runner.py:246
+                    INFO     Loading data from             data_catalog.py:1053
+                             asistencia_raw                                    
+                             (CSVDataset)...                                   
+                    INFO     Loading data from             data_catalog.py:1053
+                             calificaciones_raw                                
+                             (CSVDataset)...                                   
+                    INFO     Loading data from             data_catalog.py:1053
+                             estudiantes_raw                                   
+                             (CSVDataset)...                                   
+                    INFO     Loading data from             data_catalog.py:1053
+                             inscripciones_raw                                 
+                             (CSVDataset)...                                   
+                    INFO     Running node:                          node.py:531
+                             diagnostico_inicial_node:                         
+                             initialize_data() ->                              
+                    INFO     Saving data to                data_catalog.py:1009
+                             ingestion_report                                  
+                             (TextDataset)...                                  
+                    INFO     Completed node:                      runner.py:245
+                             diagnostico_inicial_node                          
+                    INFO     Completed 5 out of 7 tasks           runner.py:246
+                    INFO     Loading data from             data_catalog.py:1053
+                             asistencia_inter                                  
+                             (CSVDataset)...                                   
+                    INFO     Loading data from             data_catalog.py:1053
+                             calificaciones_inter                              
+                             (CSVDataset)...                                   
+                    INFO     Loading data from             data_catalog.py:1053
+                             estudiantes_inter                                 
+                             (CSVDataset)...                                   
+                    INFO     Loading data from             data_catalog.py:1053
+                             inscripciones_inter                               
+                             (CSVDataset)...                                   
+                    INFO     Running node: transform_data_node:     node.py:531
+                             transform_data() ->                               
+                    ERROR    Node transform_data_node:              node.py:556
+                             transform_data() ->  failed with                  
+                             error:                                            
+                             'id_estudiante'                                   
+                    WARNING  There are 2 nodes that have not run. runner.py:339
+                             You can resume the pipeline run from              
+                             the nearest nodes with persisted                  
+                             inputs by adding the following                    
+                             argument to your previous command:                
+                               --from-nodes "transform_data_node"              
+ÔöîÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ Traceback (most recent call last) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÉ
+Ôöé in _run_module_as_main:198                                                  Ôöé
+Ôöé in _run_code:88                                                             Ôöé
+Ôöé                                                                             Ôöé
+Ôöé in <module>:7                                                               Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\framework\c Ôöé
+Ôöé li\cli.py:260 in main                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   257 Ôöé   """                                                               Ôöé
+Ôöé   258 Ôöé   _init_plugins()                                                   Ôöé
+Ôöé   259 Ôöé   cli_collection = KedroCLI(project_path=find_kedro_project(Path.cw Ôöé
+Ôöé > 260 Ôöé   cli_collection()                                                  Ôöé
+Ôöé   261                                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\click\core.py:148 Ôöé
+Ôöé 5 in __call__                                                               Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\framework\c Ôöé
+Ôöé li\cli.py:162 in main                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   159 Ôöé   Ôöé   )                                                             Ôöé
+Ôöé   160 Ôöé   Ôöé                                                                 Ôöé
+Ôöé   161 Ôöé   Ôöé   try:                                                          Ôöé
+Ôöé > 162 Ôöé   Ôöé   Ôöé   super().main(                                             Ôöé
+Ôöé   163 Ôöé   Ôöé   Ôöé   Ôöé   args=args,                                            Ôöé
+Ôöé   164 Ôöé   Ôöé   Ôöé   Ôöé   prog_name=prog_name,                                  Ôöé
+Ôöé   165 Ôöé   Ôöé   Ôöé   Ôöé   complete_var=complete_var,                            Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\click\core.py:140 Ôöé
+Ôöé 6 in main                                                                   Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\click\core.py:187 Ôöé
+Ôöé 3 in invoke                                                                 Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\click\core.py:126 Ôöé
+Ôöé 9 in invoke                                                                 Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\click\core.py:824 Ôöé
+Ôöé in invoke                                                                   Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\framework\c Ôöé
+Ôöé li\project.py:276 in run                                                    Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   273 Ôöé   with settings.SESSION_CLASS.create(                               Ôöé
+Ôöé   274 Ôöé   Ôöé   env=env, conf_source=conf_source, runtime_params=params       Ôöé
+Ôöé   275 Ôöé   ) as session:                                                     Ôöé
+Ôöé > 276 Ôöé   Ôöé   result: dict[str, Any] = session.run(                         Ôöé
+Ôöé   277 Ôöé   Ôöé   Ôöé   tags=tuple_tags,                                          Ôöé
+Ôöé   278 Ôöé   Ôöé   Ôöé   runner=runner_obj(is_async=is_async),                     Ôöé
+Ôöé   279 Ôöé   Ôöé   Ôöé   node_names=tuple_node_names,                              Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\framework\s Ôöé
+Ôöé ession\session.py:432 in run                                                Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   429 Ôöé   Ôöé   Ôöé   run_params=record_data, pipeline=filtered_pipeline, catal Ôöé
+Ôöé   430 Ôöé   Ôöé   )                                                             Ôöé
+Ôöé   431 Ôöé   Ôöé   try:                                                          Ôöé
+Ôöé > 432 Ôöé   Ôöé   Ôöé   run_result = runner.run(                                  Ôöé
+Ôöé   433 Ôöé   Ôöé   Ôöé   Ôöé   filtered_pipeline,                                    Ôöé
+Ôöé   434 Ôöé   Ôöé   Ôöé   Ôöé   catalog,                                              Ôöé
+Ôöé   435 Ôöé   Ôöé   Ôöé   Ôöé   hook_manager,                                         Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\runn Ôöé
+Ôöé er.py:115 in run                                                            Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   112 Ôöé   Ôöé   Ôöé   )                                                         Ôöé
+Ôöé   113 Ôöé   Ôöé                                                                 Ôöé
+Ôöé   114 Ôöé   Ôöé   start_time = perf_counter()                                   Ôöé
+Ôöé > 115 Ôöé   Ôöé   self._run(pipeline, catalog, hook_or_null_manager, run_id)  # Ôöé
+Ôöé   116 Ôöé   Ôöé   end_time = perf_counter()                                     Ôöé
+Ôöé   117 Ôöé   Ôöé   run_duration = end_time - start_time                          Ôöé
+Ôöé   118                                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\sequ Ôöé
+Ôöé ential_runner.py:63 in _run                                                 Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   60 Ôöé   Ôöé   Ôöé   Ôöé   "Using synchronous mode for loading and saving data. U Ôöé
+Ôöé   61 Ôöé   Ôöé   Ôöé   Ôöé   "for potential performance gains. https://docs.kedro.o Ôöé
+Ôöé   62 Ôöé   Ôöé   Ôöé   )                                                          Ôöé
+Ôöé > 63 Ôöé   Ôöé   super()._run(                                                  Ôöé
+Ôöé   64 Ôöé   Ôöé   Ôöé   pipeline=pipeline,                                         Ôöé
+Ôöé   65 Ôöé   Ôöé   Ôöé   catalog=catalog,                                           Ôöé
+Ôöé   66 Ôöé   Ôöé   Ôöé   hook_manager=hook_manager,                                 Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\runn Ôöé
+Ôöé er.py:240 in _run                                                           Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   237 Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   hook_manager=hook_manager,                    Ôöé
+Ôöé   238 Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   is_async=self._is_async,                      Ôöé
+Ôöé   239 Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   run_id=run_id,                                Ôöé
+Ôöé > 240 Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   ).execute()                                       Ôöé
+Ôöé   241 Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   done_nodes.add(node)                              Ôöé
+Ôöé   242 Ôöé   Ôöé   Ôöé   Ôöé   except Exception:                                     Ôöé
+Ôöé   243 Ôöé   Ôöé   Ôöé   Ôöé   Ôöé   self._suggest_resume_scenario(pipeline, done_node Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\task Ôöé
+Ôöé .py:88 in execute                                                           Ôöé
+Ôöé                                                                             Ôöé
+Ôöé    85 Ôöé   Ôöé   Ôöé   Ôöé   self.run_id,                                          Ôöé
+Ôöé    86 Ôöé   Ôöé   Ôöé   )                                                         Ôöé
+Ôöé    87 Ôöé   Ôöé   else:                                                         Ôöé
+Ôöé >  88 Ôöé   Ôöé   Ôöé   node = self._run_node_sequential(                         Ôöé
+Ôöé    89 Ôöé   Ôöé   Ôöé   Ôöé   self.node,                                            Ôöé
+Ôöé    90 Ôöé   Ôöé   Ôöé   Ôöé   self.catalog,                                         Ôöé
+Ôöé    91 Ôöé   Ôöé   Ôöé   Ôöé   self.hook_manager,  # type: ignore[arg-type]          Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\task Ôöé
+Ôöé .py:164 in _run_node_sequential                                             Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   161 Ôöé   Ôöé   )                                                             Ôöé
+Ôöé   162 Ôöé   Ôöé   inputs.update(additional_inputs)                              Ôöé
+Ôöé   163 Ôöé   Ôöé                                                                 Ôöé
+Ôöé > 164 Ôöé   Ôöé   outputs = self._call_node_run(                                Ôöé
+Ôöé   165 Ôöé   Ôöé   Ôöé   node, catalog, inputs, is_async, hook_manager, run_id=run Ôöé
+Ôöé   166 Ôöé   Ôöé   )                                                             Ôöé
+Ôöé   167                                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\task Ôöé
+Ôöé .py:309 in _call_node_run                                                   Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   306 Ôöé   Ôöé   Ôöé   Ôöé   is_async=is_async,                                    Ôöé
+Ôöé   307 Ôöé   Ôöé   Ôöé   Ôöé   run_id=run_id,                                        Ôöé
+Ôöé   308 Ôöé   Ôöé   Ôöé   )                                                         Ôöé
+Ôöé > 309 Ôöé   Ôöé   Ôöé   raise exc                                                 Ôöé
+Ôöé   310 Ôöé   Ôöé   hook_manager.hook.after_node_run(                             Ôöé
+Ôöé   311 Ôöé   Ôöé   Ôöé   node=node,                                                Ôöé
+Ôöé   312 Ôöé   Ôöé   Ôöé   catalog=catalog,                                          Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\runner\task Ôöé
+Ôöé .py:299 in _call_node_run                                                   Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   296 Ôöé   Ôöé   run_id: str | None = None,                                    Ôöé
+Ôöé   297 Ôöé   ) -> dict[str, Any]:                                              Ôöé
+Ôöé   298 Ôöé   Ôöé   try:                                                          Ôöé
+Ôöé > 299 Ôöé   Ôöé   Ôöé   outputs = node.run(inputs)                                Ôöé
+Ôöé   300 Ôöé   Ôöé   except Exception as exc:                                      Ôöé
+Ôöé   301 Ôöé   Ôöé   Ôöé   hook_manager.hook.on_node_error(                          Ôöé
+Ôöé   302 Ôöé   Ôöé   Ôöé   Ôöé   error=exc,                                            Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\pipeline\no Ôöé
+Ôöé de.py:562 in run                                                            Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   559 Ôöé   Ôöé   Ôöé   Ôöé   str(exc),                                             Ôöé
+Ôöé   560 Ôöé   Ôöé   Ôöé   Ôöé   extra={"markup": True},                               Ôöé
+Ôöé   561 Ôöé   Ôöé   Ôöé   )                                                         Ôöé
+Ôöé > 562 Ôöé   Ôöé   Ôöé   raise exc                                                 Ôöé
+Ôöé   563 Ôöé                                                                     Ôöé
+Ôöé   564 Ôöé   def _run_with_no_inputs(self, inputs: dict[str, Any]) -> Any:     Ôöé
+Ôöé   565 Ôöé   Ôöé   if inputs:                                                    Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\pipeline\no Ôöé
+Ôöé de.py:548 in run                                                            Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   545 Ôöé   Ôöé   Ôöé   elif isinstance(self._inputs, str):                       Ôöé
+Ôöé   546 Ôöé   Ôöé   Ôöé   Ôöé   outputs = self._run_with_one_input(inputs, self._inpu Ôöé
+Ôöé   547 Ôöé   Ôöé   Ôöé   elif isinstance(self._inputs, list):                      Ôöé
+Ôöé > 548 Ôöé   Ôöé   Ôöé   Ôöé   outputs = self._run_with_list(inputs, self._inputs)   Ôöé
+Ôöé   549 Ôöé   Ôöé   Ôöé   elif isinstance(self._inputs, dict):                      Ôöé
+Ôöé   550 Ôöé   Ôöé   Ôöé   Ôöé   outputs = self._run_with_dict(inputs, self._inputs)   Ôöé
+Ôöé   551                                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\kedro\pipeline\no Ôöé
+Ôöé de.py:593 in _run_with_list                                                 Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   590 Ôöé   Ôöé   Ôöé   Ôöé   f"{sorted(inputs.keys())}."                           Ôöé
+Ôöé   591 Ôöé   Ôöé   Ôöé   )                                                         Ôöé
+Ôöé   592 Ôöé   Ôöé   # Ensure the function gets the inputs in the correct order    Ôöé
+Ôöé > 593 Ôöé   Ôöé   return self._func(*(inputs[item] for item in node_inputs))    Ôöé
+Ôöé   594 Ôöé                                                                     Ôöé
+Ôöé   595 Ôöé   def _run_with_dict(                                               Ôöé
+Ôöé   596 Ôöé   Ôöé   self, inputs: dict[str, Any], node_inputs: dict[str, str]     Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\src\pruebai\pipelines\data_transformation\nodes.py Ôöé
+Ôöé :19 in transform_data                                                       Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   16 Ôöé   Ôöé   calificaciones_pivot = calificaciones_pivot.fillna(0)          Ôöé
+Ôöé   17 Ôöé   else:                                                              Ôöé
+Ôöé   18 Ôöé   Ôöé   # Fallback si las columnas no se llaman asi, hacemos un groupb Ôöé
+Ôöé > 19 Ôöé   Ôöé   calificaciones_pivot = calificaciones.groupby('id_estudiante') Ôöé
+Ôöé   20 Ôöé                                                                      Ôöé
+Ôöé   21 Ôöé   # 2. Joins                                                         Ôöé
+Ôöé   22 Ôöé   merged = estudiantes                                               Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\pandas\core\frame Ôöé
+Ôöé .py:9210 in groupby                                                         Ôöé
+Ôöé                                                                             Ôöé
+Ôöé    9207 Ôöé   Ôöé   if level is None and by is None:                            Ôöé
+Ôöé    9208 Ôöé   Ôöé   Ôöé   raise TypeError("You have to supply one of 'by' and 'le Ôöé
+Ôöé    9209 Ôöé   Ôöé                                                               Ôöé
+Ôöé >  9210 Ôöé   Ôöé   return DataFrameGroupBy(                                    Ôöé
+Ôöé    9211 Ôöé   Ôöé   Ôöé   obj=self,                                               Ôöé
+Ôöé    9212 Ôöé   Ôöé   Ôöé   keys=by,                                                Ôöé
+Ôöé    9213 Ôöé   Ôöé   Ôöé   axis=axis,                                              Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\pandas\core\group Ôöé
+Ôöé by\groupby.py:1331 in __init__                                              Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   1328 Ôöé   Ôöé   self.dropna = dropna                                         Ôöé
+Ôöé   1329 Ôöé   Ôöé                                                                Ôöé
+Ôöé   1330 Ôöé   Ôöé   if grouper is None:                                          Ôöé
+Ôöé > 1331 Ôöé   Ôöé   Ôöé   grouper, exclusions, obj = get_grouper(                  Ôöé
+Ôöé   1332 Ôöé   Ôöé   Ôöé   Ôöé   obj,                                                 Ôöé
+Ôöé   1333 Ôöé   Ôöé   Ôöé   Ôöé   keys,                                                Ôöé
+Ôöé   1334 Ôöé   Ôöé   Ôöé   Ôöé   axis=axis,                                           Ôöé
+Ôöé                                                                             Ôöé
+Ôöé C:\Users\mapap\Desktop\quinto_semestre\Programaci├│n para la ciencia de      Ôöé
+Ôöé datos\1eraPrueba\pruebai\entorno-prueba\Lib\site-packages\pandas\core\group Ôöé
+Ôöé by\grouper.py:1043 in get_grouper                                           Ôöé
+Ôöé                                                                             Ôöé
+Ôöé   1040 Ôöé   Ôöé   Ôöé   elif obj._is_level_reference(gpr, axis=axis):            Ôöé
+Ôöé   1041 Ôöé   Ôöé   Ôöé   Ôöé   in_axis, level, gpr = False, gpr, None               Ôöé
+Ôöé   1042 Ôöé   Ôöé   Ôöé   else:                                                    Ôöé
+Ôöé > 1043 Ôöé   Ôöé   Ôöé   Ôöé   raise KeyError(gpr)                                  Ôöé
+Ôöé   1044 Ôöé   Ôöé   elif isinstance(gpr, Grouper) and gpr.key is not None:       Ôöé
+Ôöé   1045 Ôöé   Ôöé   Ôöé   # Add key to exclusions                                  Ôöé
+Ôöé   1046 Ôöé   Ôöé   Ôöé   exclusions.add(gpr.key)                                  Ôöé
+ÔööÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÿ
+KeyError: 'id_estudiante'

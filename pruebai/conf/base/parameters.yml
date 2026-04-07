@@ -1,0 +1,7 @@
+# Parametros para la limpieza y transformacion
+
+outlier_threshold: 3.0 # Z-score threshold
+target_column: 'nota'  # Used to check outliers in calificaciones
+
+columns_to_impute_mode: ['nacionalidad', 'facultad']
+columns_to_impute_median: ['edad', 'nota']

@@ -1,4 +1,70 @@
-# Here you can define all your datasets by using simple YAML syntax.
-#
-# Documentation for this file format can be found in "The Data Catalog"
-# Link: https://docs.kedro.org/en/stable/catalog-data/introduction/#data-catalog
+# RAW DATASETS
+asistencia_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/asistencia.csv
+  load_args:
+    encoding: "latin1"
+
+calificaciones_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/calificaciones.csv
+  load_args:
+    encoding: "latin1"
+
+estudiantes_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/estudiantes.csv
+  load_args:
+    encoding: "latin1"
+
+inscripciones_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/inscripciones.csv
+  load_args:
+    encoding: "latin1"
+
+# INTERMEDIATE DATASETS (Cleaned)
+asistencia_inter:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/asistencia_limpia.csv
+  save_args:
+    index: False
+    encoding: "utf-8"
+
+calificaciones_inter:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/calificaciones_limpia.csv
+  save_args:
+    index: False
+    encoding: "utf-8"
+
+estudiantes_inter:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/estudiantes_limpia.csv
+  save_args:
+    index: False
+    encoding: "utf-8"
+
+inscripciones_inter:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/inscripciones_limpia.csv
+  save_args:
+    index: False
+    encoding: "utf-8"
+
+# PRIMARY DATASET (Integrated & Transformed)
+dataset_integrado:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/dataset_integrado.csv
+  save_args:
+    index: False
+    encoding: "utf-8"
+
+# REPORTING (Validations & Summaries)
+ingestion_report:
+  type: text.TextDataset
+  filepath: data/08_reporting/ingestion_report.txt
+
+validation_report:
+  type: text.TextDataset
+  filepath: data/08_reporting/validation_report.txt

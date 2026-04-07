@@ -1,101 +1,75 @@
-# pruebaI
+# Guía de Implementación Kedro - Caso 5: Educación Universitaria
 
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 
-## Overview
+Este repositorio contiene la solución completa para el **Caso 5: Educación Universitaria**. Utilizando el framework de **Kedro**, hemos construido una serie de _pipelines_ (flujos de datos) modulares encargados de ingerir, limpiar, transformar matemáticamente y validar datos provenientes de cuatro fuentes: *Estudiantes, Asistencias, Calificaciones e Inscripciones*.
 
-This is your new Kedro project, which was generated using `kedro 1.3.1`.
+Este documento `README.md` funciona como una guía paso a paso para que cualquier usuario o docente pueda implementar, reproducir y evaluar este proyecto en su propio equipo sin inconvenientes.
 
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
+---
 
-## Rules and guidelines
+## 1. Requisitos y Preparación del Entorno
 
-In order to get the best out of the template:
+Es muy recomendable ejecutar este proyecto dentro de un entorno virtual aislado para evitar conflictos con las librerías globales de tu computadora. Debes contar con **Python 3.9 o superior**.
 
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a data engineering convention
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
+### Crear y Activar el Entorno Virtual
+Primero, abre tu terminal (PowerShell recomendado en Windows) en la carpeta raíz del proyecto (`pruebai/`) y ejecuta:
 
-## How to install dependencies
+```bash
+# Crear el entorno virtual
+python -m venv entorno-prueba
 
-Declare any dependencies in `requirements.txt` for `pip` installation.
-
-To install them, run:
-
+# Activar el entorno virtual
+.\entorno-prueba\Scripts\activate
 ```
+
+### Instalación de Dependencias
+Con el entorno activado, instala todas las librerías necesarias. Hemos configurado el archivo de requerimientos para que incluya dependencias clave como `scikit-learn` y el plugin de pandas para el catálogo de Kedro:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## How to run your Kedro pipeline
+---
 
-You can run your Kedro project with:
+## 2. Ejecución del Proyecto: Consideración Crítica para Windows
 
+Los datos originales contienen caracteres especiales y tildes en español. Para asegurar que Pandas y Kedro lean y guarden estos archivos correctamente sin arrojar errores de codificación (como el temido `UnicodeDecodeError`), configuramos el catálogo para leer en formato `latin1` y guardar el resultado final en formato estándar `utf-8`.
+
+**🔴 IMPORTANTE:** Si usas Windows, el sistema operativo por defecto intentará usar su propia codificación (`cp1252`) ignorando nuestras reglas y provocando una caída durante el guardado de los datos limpios. Para prevenir esto, **antes de ejecutar Kedro**, debes configurar temporalmente la codificación de tu terminal al estándar internacional.
+
+En **PowerShell** (Recomendado), ejecuta este comando una vez:
+```powershell
+$env:PYTHONUTF8=1
 ```
+*(Si usas la consola CMD tradicional, utiliza en su lugar: `set PYTHONUTF8=1`)*
+
+---
+
+## 3. Ejecutar los Pipelines de Datos
+
+Con las dependencias instaladas y la variable `PYTHONUTF8` configurada, estás listo para correr el flujo completo. Este comando ejecutará secuencialmente la Ingesta, Limpieza, Transformación y Validación de los datos:
+
+```bash
 kedro run
 ```
 
-## How to test your Kedro project
+### Resultados de la Ejecución
+Al finalizar exitosamente, verás un mensaje indicando `Exit code 0`. Podrás comprobar los resultados revisando las siguientes carpetas dentro de `/data`:
+* **`02_intermediate/`**: Contiene las cuatro tablas originales, ahora completamente limpias, sin valores nulos ni ruido en las notas.
+* **`03_primary/`**: Contiene nuestro gran entregable: `dataset_integrado.csv`. Un dataset robusto de formato Machine Learning, unificado a partir de las bases previas, con variables escaladas (StandardScaler) numéricamente.
+* **`08_reporting/`**: Contiene reportes de texto (`.txt`) generados automáticamente resumiendo diagnósticos de duplicados, datos faltantes y validación de columnas.
 
-Have a look at the file `tests/test_run.py` for instructions on how to write your tests. You can run your tests as follows:
+---
 
-```
-pytest
-```
+## 4. Exploración Visual (Notebook EDA)
 
-You can configure the coverage threshold in your project's `pyproject.toml` file under the `[tool.coverage.report]` section.
+Si además de correr el código en la terminal deseas visualizar de manera gráfica los problemas que tenían los datos originales y cómo cada función del pipeline los fue resolviendo, hemos dejado preparado un cuaderno interactivo provisto de gráficos (utilizando Matplotlib y Seaborn).
 
+Levanta el entorno de cuadernos ejecutando:
 
-## Project dependencies
-
-To see and update the dependency requirements for your project use `requirements.txt`. You can install the project requirements with `pip install -r requirements.txt`.
-
-[Further information about project dependencies](https://docs.kedro.org/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
-
-## How to work with Kedro and notebooks
-
-> Note: Using `kedro jupyter` or `kedro ipython` to run your notebook provides these variables in scope: `context`, 'session', `catalog`, and `pipelines`.
->
-> Jupyter, JupyterLab, and IPython are already included in the project requirements by default, so once you have run `pip install -r requirements.txt` you will not need to take any extra steps before you use them.
-
-### Jupyter
-To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
-
-```
-pip install jupyter
-```
-
-After installing Jupyter, you can start a local notebook server:
-
-```
-kedro jupyter notebook
-```
-
-### JupyterLab
-To use JupyterLab, you need to install it:
-
-```
-pip install jupyterlab
-```
-
-You can also start JupyterLab:
-
-```
+```bash
 kedro jupyter lab
 ```
 
-### IPython
-And if you want to run an IPython session:
-
-```
-kedro ipython
-```
-
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can use tools like [`nbstripout`](https://github.com/kynan/nbstripout). For example, you can add a hook in `.git/config` with `nbstripout --install`. This will run `nbstripout` before anything is committed to `git`.
-
-> *Note:* Your output cells will be retained locally.
-
-## Package your Kedro project
-
-[Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/deploy/package_a_project/#package-an-entire-kedro-project)
+Una vez en el navegador, abre el archivo `notebooks/01_eda_exploratorio.ipynb` y ejecuta sus celdas paso a paso para recorrer interactivamente todo nuestro Análisis Exploratorio de Datos (EDA).
